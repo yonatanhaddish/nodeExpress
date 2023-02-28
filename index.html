@@ -29,6 +29,7 @@
         $("#send").click(() => {
             addMessage({name: 'Tim', message: 'hello'})
         })
+        getMessage();
     });
 
     function addMessage(message) {
@@ -36,6 +37,15 @@
             `<h4> ${message.name} </h4>
             <p> ${message.message} </p>`
         )
+    };
+
+    function getMessage() {
+        $.get('http://localhost:3008/messages', (data) => {
+            // console.log(data);
+            data.forEach(element => {
+                addMessage(element);
+            });
+        })
     };
 
 </script>
