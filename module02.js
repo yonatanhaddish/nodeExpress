@@ -1,0 +1,1 @@
+exports.myText = "Hello form module2";
