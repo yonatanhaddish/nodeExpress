@@ -1,4 +1,6 @@
-const fs = require('fs');
+// const fs = require('fs');
+
+// console.log("--------------------------------------------------------------------------");
 
 // ----------reading from files----------
 // fs.readFile('./docs/blog01.txt', (err, data) => {
@@ -8,6 +10,8 @@ const fs = require('fs');
 //     console.log(data.toString());
 // });
 
+// console.log("--------------------------------------------------------------------------");
+
 // ----------writing into files----------
 // fs.writeFile('./docs/blog01.txt', "hello, Teenage Mutant Ninja Turtles", () => {
 //     console.log("File was written successfully into ''docs/blog02.txt'");
@@ -15,6 +19,8 @@ const fs = require('fs');
 // fs.writeFile('./docs/blog02.txt', "hello, The Transformer", () => {
 //     console.log("File was written sucessfully into 'docs/blog02.txt'");
 // });
+
+// console.log("--------------------------------------------------------------------------");
 
 // ----------creating and deleting directories----------
 // if (!fs.existsSync('./assets')) {
@@ -33,6 +39,8 @@ const fs = require('fs');
 //     });
 // };
 
+// console.log("--------------------------------------------------------------------------");
+
 // ----------deleting files----------
 // if (fs.existsSync('./docs/deleteMe.txt')) {
 //     fs.unlink('./docs/deleteMe.txt', (err) => {
@@ -44,3 +52,5 @@ const fs = require('fs');
 // } else {
 //     console.log("No file found to be deleted");
 // };
+
+// console.log("--------------------------------------------------------------------------");
