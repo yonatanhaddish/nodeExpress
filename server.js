@@ -1,8 +1,9 @@
 const http = require('http');
 const fs = require('fs');
+const _ = require('lodash');
 
 const server = http.createServer((req, res) => {
-    console.log(req.url);
+    // console.log(req.url);
     // console.log(req.method);
 
     // set header content type
@@ -11,6 +12,12 @@ const server = http.createServer((req, res) => {
     // res.write("<p>Hello, Ninja</p>");
     // res.write("<p>Hello, Teenage Mutant Ninja Turtles</p>");
     // res.end();
+
+    // lodash
+    const num = _.random(1,100);
+    console.log(`Random Number: ${num} and the request is ${req.url}`);
+
+
 
     let path = './views/';
 
@@ -47,5 +54,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(3006, "localhost", () => {
-    console.log("listening for request on port 3006");
+    console.log("listening for request on port 3006 using node.js");
 });
