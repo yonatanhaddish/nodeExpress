@@ -26,57 +26,19 @@ app.set("view engine", "ejs"); // ejs will look into view folder by default.
 // middleware to log HTTP requests and errors
 app.use(morgan('dev'));
 
-// mongoose and mongoDB sandbox routes
-app.get('/add-blog', (req, res) => {
-  const blog = new Blog({
-    title: 'new blog 03',
-    snippet: 'about my new blog 03',
-    body: 'more about my new blog on body 03'
-  });
-  blog.save()
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-app.get('/all-blogs', (req, res) => {
-  Blog.find()
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-app.get('/single-blog', (req, res) => {
-  const id = '640b94b3c7d19f119700cbde';
-  Blog.findById(id)
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
 // middleware & static files (anything inside the folder public will be considered static).
 app.use(express.static('public'));
 
 // listen for requests
 app.get("/", (req, res) => {
-  // res.send("<h1>Home Page</h1>");
-  // res.sendFile('./views/index.html', { root: __dirname });
-  const blogs = [
-    { title: "Title 01", snippet: "Snippet 01" },
-    { title: "Title 02", snippet: "Snippet 02" },
-    { title: "Title 03", snippet: "Snippet 03" },
-  ];
-  res.render("index", { title: "Home", blogs });
+  res.redirect("/blogs");
 });
+app.get("/blogs", (req, res) => {
+  Blog.find()
+    .then((result) => {
+      res.render("index", { title: 'All blogs', blogs: result})
+    })
+})
 app.get("/about", (req, res) => {
   // res.send("<h1>About-Me Page</h1>");
   // res.sendFile('./views/about.html', { root: __dirname });
